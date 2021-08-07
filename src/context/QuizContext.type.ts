@@ -10,5 +10,6 @@ export const initialState: QuizState = {
     score: 0,
     quizId: '',
     quizName: '',
-    quizQuesQty: 0
+    quizQuesQty: 0,
+    allQuizList: []
 }

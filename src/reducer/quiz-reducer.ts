@@ -5,13 +5,15 @@ export type QuizState = {
     quizId: string;
     quizName: string;
     quizQuesQty: number;
+    allQuizList: Array<Quiz>
 };
 
 export type ACTIONTYPE =
     | { type: "SET_QUIZ"; payload: Quiz }
     | { type: "RESET" }
     | { type: "INCREMENT" }
-    | { type: "DECREMENT" };
+    | { type: "DECREMENT" }
+    | { type: 'ADD_ALL_QUIZZES', payload: Array<Quiz> }
 
 export const quizReducer = (state: QuizState, action: ACTIONTYPE) => {
     switch (action.type) {
@@ -37,6 +39,11 @@ export const quizReducer = (state: QuizState, action: ACTIONTYPE) => {
             return {
                 ...state,
                 score: state.score - 0.5,
+            };
+        case 'ADD_ALL_QUIZZES':
+            return {
+                ...state,
+                allQuizList: action.payload
             };
         default:
             return state;

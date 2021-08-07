@@ -1,15 +1,17 @@
 import { useQuizContext } from '../../context/QuizContextProvider';
-import { questions } from '../../data/quiz-data';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from "react-router";
 import styles from './QuizPage.module.css';
 
-export function QuizPage() {
+export function QuizPage(prop: any) {
     const { quizState, quizDispatch } = useQuizContext();
-    const { quizName, quizId } = quizState;
-    const quizData = questions.find(i => i.quizId === quizId)
+    const { quizName, quizId, allQuizList } = quizState;
+    const quizData = allQuizList.find(i => i.quizId === quizId)
     const [quesIndex, setQuesIndex] = useState(0)
+    // const currentQuesData = quizData?.questions[quesIndex]
+
     const currentQuesData = quizData?.questions[quesIndex]
+
     const [clicked, setClicked] = useState(false)
     const [clickedIndex, setClickedIndex] = useState(-1);
     const navigate = useNavigate();
@@ -34,9 +36,10 @@ export function QuizPage() {
                             currentQuesData?.options?.map((i, index) => {
                                 return <button
                                     disabled={clicked}
+                                    key={i.text}
                                     style={{
                                         cursor: clicked ? "not-allowed" : "pointer",
-                                        backgroundColor: clicked ? i.isRight ? "lightgreen" : clickedIndex == index ?  "red" : "inherit" : "inherit",
+                                        backgroundColor: clicked ? i.isRight ? "lightgreen" : clickedIndex === index ? "red" : "inherit" : "inherit",
                                     }}
                                     className={styles.quizPage__option}
                                     onClick={() => {
