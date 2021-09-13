@@ -1,7 +1,6 @@
 import { quizReducer, ACTIONTYPE } from './quiz-reducer';
 import { initialState } from '../context/QuizContext.type';
 import { QuizState } from "../reducer/quiz-reducer";
-import { Quiz } from '../data/quiz-types';
 
 describe("testing quiz reducer", () => {
 
