@@ -15,7 +15,7 @@ export const QuizProvider: React.FC = ({ children }) => {
     useEffect(() => {
         (
             async function () {
-                await axios.get('https://oh-my-quiz-api.herokuapp.com/quiz')
+                await axios.get('https://quiz-app-backend.vishal1982c.repl.co/quiz')
                     .then(resp => {
                         quizDispatch({ type: "ADD_ALL_QUIZZES", payload: resp.data.quizList })
                     })
