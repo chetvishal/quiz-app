@@ -14,8 +14,8 @@ export function QuizCard({ QuizTitle, QuizData }: QuizCardProps) {
     return (
         <>
             <div
-                className="inline-flex flex-col max-w-[-400px] my-4 mx-auto bg-white 
-                cursor-pointer rounded-2xl shadow-md max-w-sm"
+                className="inline-flex flex-col max-w-[-400px] my-4 mx-auto bg-white dark:bg-gray-700 
+                cursor-pointer rounded-2xl shadow-md max-w-sm text-gray-800 dark:text-gray-200"
                 onClick={() => {
                     quizDispatch({ type: "SET_QUIZ", payload: QuizData })
                     navigate(`/quiz/${QuizData.quizId}`)
@@ -35,7 +35,7 @@ export function QuizCard({ QuizTitle, QuizData }: QuizCardProps) {
                 <div
                     className="px-8 py-4 text-left">
                     <span
-                        className="text-xl font-bold text-gray-800 my-[-0.5rem] mx-0"
+                        className="text-xl font-bold  my-[-0.5rem] mx-0"
                     >{QuizTitle}</span>
                     <span className="block my-[-0.5rem] mx-0 font-medium">{QuizData.questions.length} questions</span>
                 </div>

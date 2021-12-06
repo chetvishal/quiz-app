@@ -22,7 +22,7 @@ export function QuizPage(prop: any) {
 
     return (
         <div
-            className=""
+            className="sm:h-screen lg:h-full h-screen"
         >
             <h1
                 className="mx-5 my-0 heading-gradient text-3xl font-bold cursor-pointer" 
@@ -35,16 +35,16 @@ export function QuizPage(prop: any) {
 
             <div style={{ margin: "0.9rem 0" }}>
                 <h2 
-                    className="h2"
+                    className="h2 dark:text-gray-200"
                 >{currentQuesData?.question}</h2>
                 <hr 
                 
-                className="h-0 border-solid border-t-1" 
+                className="h-0 border-solid border-t-1 dark:border-gray-700" 
                 
                 />
                 <div 
                 
-                className="grid justify-center grid-cols-quizOptionlist"
+                className="grid justify-center grid-cols-quizOptionlist mt-2"
                 >
                     <span style={{ display: "none" }}></span>
                     {
@@ -55,11 +55,11 @@ export function QuizPage(prop: any) {
                                     key={i.text}
                                     style={{
                                         cursor: clicked ? "not-allowed" : "pointer",
-                                        backgroundColor: clicked ? i.isRight ? "lightgreen" : clickedIndex === index ? "red" : "inherit" : "inherit",
+                                        // backgroundColor: clicked ? i.isRight ? "lightgreen" : clickedIndex === index ? "red" : "" : "",
                                     }}
-                                    className="mt-2 block mx-auto mb-0 border-none text-gray-900 shadow-quizOptionBoxShadow py-1 px-8
+                                    className={`mt-2 block mx-auto mb-0 border-none text-gray-900 dark:text-gray-200 shadow-quizOptionBoxShadow py-1 px-8
                                      text-base font-semibold w-full rounded-xl text-left min-h-quizOptionHeight min-w-quizOptionMinWidth max-w-quizOptionMaxWidth
-                                    "
+                                     bg-red ${clicked ? i.isRight ? "bg-green-500" : clickedIndex === index ? "bg-red-500" : "bg-white dark:bg-gray-700" : "bg-white dark:bg-gray-700"}`}
                                     onClick={() => {
                                         setClickedIndex(() => index)
                                         checkIsRight(i.isRight)
@@ -76,7 +76,7 @@ export function QuizPage(prop: any) {
                         setClicked(() => false)
                     }}
                     className="text-base py-2 px-6 mx-auto block border-none
-                     text-white font-bold cursor-pointer bg-btn-pink-gradient my-6"
+                     text-white font-bold cursor-pointer bg-btn-pink-gradient my-6 rounded-xl"
                 >
                     Next
                 </button>}
