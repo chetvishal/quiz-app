@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { useQuizContext } from '../../context/QuizContextProvider';
-import styles from './FinalScore.module.css';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 export function FinalScore() {
     const navigate = useNavigate();
@@ -42,24 +43,25 @@ export function FinalScore() {
     percentage = quizState.score / quizState.quizQuesQty * 100;
     createCircle(percentage);
 
-
-
     return (
         <>
-            <h1 className={styles.result__heading}>Final Score: {quizState.score}/{quizState.quizQuesQty}</h1>
+            <h1
+
+                className="heading-gradient"
+
+            >Final Score: {quizState.score}/{quizState.quizQuesQty}</h1>
 
             <button
                 onClick={() => navigate('/')}
-                className={styles.result__homeBtn}>
+                className={`text-base py-2 px-6 mx-auto block border-none
+                text-white font-bold cursor-pointer bg-btn-pink-gradient my-6`}>
                 home
             </button>
 
-            <div className={`${styles.c100} ${styles.big}`}>
-                <span className={styles.no}>{percentage}%</span>
-                <div className={styles.slice} style={sliceCss}>
-                    <div className={styles.bar} style={{ ...barCss, borderColor: percentage < 0 ? "red" : "#307bbb" }}></div>
-                    <div className={styles.fill} style={{ ...fillCss, borderColor: percentage < 0 ? "red" : "#307bbb" }}></div>
-                </div>
+            <div
+                className="lg:w-1/4 w-full mx-auto mt-16"
+            >
+                <CircularProgressbar value={percentage} text={`${percentage}%`} />
             </div>
         </>
     )

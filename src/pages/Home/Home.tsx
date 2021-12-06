@@ -1,4 +1,3 @@
-import styles from "./Home.module.css";
 import { useQuizContext } from '../../context/QuizContextProvider';
 import { Loader, QuizCard } from '../../components/index';
 
@@ -6,12 +5,17 @@ import { Loader, QuizCard } from '../../components/index';
 export function Home() {
 
     const { quizState } = useQuizContext();
-    console.log("allquizList", quizState.allQuizList)
 
     return (
-        <div className={styles.home}>
-            <h1 className={styles.home__heading}>Oh My Quiz!</h1>
-            <div className={styles.home__quizList}>
+        <div
+            className=""
+        >
+            <h1
+                className="heading-gradient"
+            >Oh My Quiz!</h1>
+            <div
+                className="my-0 mx-2 grid grid-cols-quizzesList justify-center items-end"
+            >
                 {
                     quizState.allQuizList.length !== 0 ?
                         quizState.allQuizList.map(item => {

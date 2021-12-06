@@ -1,4 +1,32 @@
-body {
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  
+  h2 {
+    @apply text-2xl;
+    @apply font-bold;
+    @apply mx-0;
+    @apply my-4;
+  }
+}
+
+.heading-gradient {
+  background-color: #f977ce;
+  background-image: linear-gradient(315deg, #f977ce 0%, #c373f2 74%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -2px;
+  margin: 20px 0;
+  font-weight: bold;
+  font-size: 32px;
+  padding: 0.5rem;
+}
+
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -15,7 +43,6 @@ code {
 .App {
   text-align: center;
   padding: 1rem;
-  /* background: url(./assets/Image/questionBg.jpg) */
 }
 
 .App-logo {
@@ -27,9 +54,9 @@ code {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -55,5 +82,4 @@ h1,h2, h3, h4 {
   to {
     transform: rotate(360deg);
   }
-}
-
+} */

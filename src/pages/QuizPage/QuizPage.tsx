@@ -1,7 +1,6 @@
 import { useQuizContext } from '../../context/QuizContextProvider';
 import { useState } from 'react'
 import { useNavigate } from "react-router";
-import styles from './QuizPage.module.css';
 
 export function QuizPage(prop: any) {
     const { quizState, quizDispatch } = useQuizContext();
@@ -22,14 +21,31 @@ export function QuizPage(prop: any) {
     }
 
     return (
-        <div className={styles.quizPage}>
-            <h1 className={styles.quizPage__heading} onClick={() => navigate('/')}>{quizName}</h1>
-            <div className={styles.quizPage__score}>SCORE: {quizState?.score}</div>
+        <div
+            className=""
+        >
+            <h1
+                className="mx-5 my-0 heading-gradient text-3xl font-bold cursor-pointer" 
+                onClick={() => navigate('/')}>{quizName}</h1>
+            <div 
+            
+            className="text-white bg-black inline-block py-2 px-2 font-medium"
+            
+            >SCORE: {quizState?.score}</div>
 
             <div style={{ margin: "0.9rem 0" }}>
-                <h2>{currentQuesData?.question}</h2>
-                <hr className={styles.quizPage__hr} />
-                <div className={styles.quizPage__optionList}>
+                <h2 
+                    className="h2"
+                >{currentQuesData?.question}</h2>
+                <hr 
+                
+                className="h-0 border-solid border-t-1" 
+                
+                />
+                <div 
+                
+                className="grid justify-center grid-cols-quizOptionlist"
+                >
                     <span style={{ display: "none" }}></span>
                     {
                         currentQuesData?.options !== undefined && currentQuesData?.options?.length + 1 > quesIndex ?
@@ -41,7 +57,9 @@ export function QuizPage(prop: any) {
                                         cursor: clicked ? "not-allowed" : "pointer",
                                         backgroundColor: clicked ? i.isRight ? "lightgreen" : clickedIndex === index ? "red" : "inherit" : "inherit",
                                     }}
-                                    className={styles.quizPage__option}
+                                    className="mt-2 block mx-auto mb-0 border-none text-gray-900 shadow-quizOptionBoxShadow py-1 px-8
+                                     text-base font-semibold w-full rounded-xl text-left min-h-quizOptionHeight min-w-quizOptionMinWidth max-w-quizOptionMaxWidth
+                                    "
                                     onClick={() => {
                                         setClickedIndex(() => index)
                                         checkIsRight(i.isRight)
@@ -53,12 +71,12 @@ export function QuizPage(prop: any) {
                 </div>
                 {clicked && <button
                     color="secondary"
-                    // style={{ marginTop: "0.5rem" }}
                     onClick={() => {
                         setQuesIndex(quesIndex => quesIndex + 1)
                         setClicked(() => false)
                     }}
-                    className={styles.quizPage__nextBtn}
+                    className="text-base py-2 px-6 mx-auto block border-none
+                     text-white font-bold cursor-pointer bg-btn-pink-gradient my-6"
                 >
                     Next
                 </button>}
